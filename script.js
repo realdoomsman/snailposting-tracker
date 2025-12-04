@@ -4,7 +4,7 @@ const CONFIG = {
     communityUrl: 'https://x.com/i/communities/1996366238260351235',
     updateInterval: 45000,
     targetMC: 10000000,
-    startDate: new Date('2024-12-03') // Day 1 of snailposting
+    startDate: new Date('2025-12-03') // Day 1 of snailposting
 };
 
 // ===== CALCULATE DAY NUMBER =====
