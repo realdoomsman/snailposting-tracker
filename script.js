@@ -173,9 +173,52 @@ function hideLoadingScreen() {
         const loader = document.getElementById('loadingScreen');
         if (loader) {
             loader.classList.add('hidden');
-            setTimeout(() => loader.remove(), 600);
+            setTimeout(() => {
+                loader.remove();
+                // Start snail intro animation
+                startSnailIntro();
+            }, 600);
         }
     }, 2500);
+}
+
+// ===== SNAIL INTRO ANIMATION =====
+function startSnailIntro() {
+    const container = document.querySelector('.snail-container');
+    if (container) {
+        container.classList.add('intro');
+        
+        // Create trail effect
+        createSnailTrail();
+        
+        // Remove intro class after animation
+        setTimeout(() => {
+            container.classList.remove('intro');
+        }, 3000);
+    }
+}
+
+function createSnailTrail() {
+    const positions = [
+        { x: -30, y: -30, delay: 0 },
+        { x: 40, y: 25, delay: 400 },
+        { x: -25, y: -15, delay: 800 },
+        { x: 20, y: 20, delay: 1200 },
+        { x: -10, y: -10, delay: 1600 },
+    ];
+    
+    positions.forEach(pos => {
+        setTimeout(() => {
+            const trail = document.createElement('div');
+            trail.className = 'snail-trail';
+            trail.textContent = '🐌';
+            trail.style.left = `calc(50% + ${pos.x}vw)`;
+            trail.style.top = `calc(40% + ${pos.y}vh)`;
+            document.body.appendChild(trail);
+            
+            setTimeout(() => trail.remove(), 1000);
+        }, pos.delay);
+    });
 }
 
 // ===== START ON PAGE LOAD =====

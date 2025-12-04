@@ -749,3 +749,62 @@ footer p {
     .loading-text { font-size: 1.6rem; }
     .loading-bar { width: 240px; }
 }
+
+
+/* Snail Intro Animation */
+.snail-container.intro .snail {
+    animation: snail-fly-in 3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes snail-fly-in {
+    0% {
+        transform: translate(-100vw, -100vh) rotate(-180deg) scale(0.3);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(30vw, 20vh) rotate(45deg) scale(0.8);
+        opacity: 1;
+    }
+    40% {
+        transform: translate(-20vw, -10vh) rotate(-30deg) scale(1.2);
+    }
+    60% {
+        transform: translate(15vw, 15vh) rotate(20deg) scale(0.9);
+    }
+    80% {
+        transform: translate(-5vw, -5vh) rotate(-10deg) scale(1.1);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+}
+
+.snail-container.intro::after {
+    animation: glow-intro 3s ease-out forwards;
+}
+
+@keyframes glow-intro {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+/* Trail effect during intro */
+.snail-trail {
+    position: fixed;
+    font-size: 40px;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    animation: trail-fade 1s ease-out forwards;
+}
+
+@keyframes trail-fade {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.3); }
+}
