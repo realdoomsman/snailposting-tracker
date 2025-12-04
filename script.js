@@ -10,8 +10,12 @@ const CONFIG = {
 // ===== CALCULATE DAY NUMBER =====
 function getDayNumber() {
     const now = new Date();
-    const diffTime = Math.abs(now - CONFIG.startDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const start = new Date(CONFIG.startDate);
+    // Reset time to midnight for accurate day calculation
+    now.setHours(0, 0, 0, 0);
+    start.setHours(0, 0, 0, 0);
+    const diffTime = now - start;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
     return Math.max(1, diffDays);
 }
 
