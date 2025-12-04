@@ -391,10 +391,11 @@ body::before {
 
 .milestone-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .milestone {
@@ -732,6 +733,10 @@ footer p {
 }
 
 /* Mobile */
+@media (max-width: 1100px) {
+    .milestone-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.5rem; }
     .subtitle { font-size: 1.2rem; }
@@ -740,6 +745,8 @@ footer p {
     .mc-value { font-size: 2rem; }
     .milestones h2, .lore h2, .token h2 { font-size: 2.2rem; }
     .milestone-grid { grid-template-columns: repeat(2, 1fr); }
+    .milestone { padding: 30px 20px; }
+    .milestone-snail { font-size: 35px !important; }
     .lore-content { padding: 30px; }
     .ca-box { padding: 30px; }
     .token-buttons { flex-direction: column; }
