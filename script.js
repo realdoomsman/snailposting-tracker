@@ -1,6 +1,6 @@
 // ===== CONFIGURATION =====
 const CONFIG = {
-    contractAddress: 'DFwkHL3gudFWyA5ZubbpmpFGTNTmsNWRC8YFc4uJpump',
+    contractAddress: 'YOUR_CONTRACT_ADDRESS_HERE',
     communityUrl: 'https://x.com/i/communities/1996366238260351235',
     updateInterval: 45000,
     targetMC: 10000000,
