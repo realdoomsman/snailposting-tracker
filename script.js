@@ -4,17 +4,19 @@ const CONFIG = {
     communityUrl: 'https://x.com/i/communities/1996366238260351235',
     updateInterval: 45000,
     targetMC: 10000000,
-    startDate: new Date('2025-12-03') // Day 1 of snailposting
+    // Start date: December 3, 2025 (Year, Month-1, Day)
+    startYear: 2025,
+    startMonth: 12,
+    startDay: 3
 };
 
 // ===== CALCULATE DAY NUMBER =====
 function getDayNumber() {
     const now = new Date();
-    const start = new Date(CONFIG.startDate);
-    // Reset time to midnight for accurate day calculation
-    now.setHours(0, 0, 0, 0);
-    start.setHours(0, 0, 0, 0);
-    const diffTime = now - start;
+    const start = new Date(CONFIG.startYear, CONFIG.startMonth - 1, CONFIG.startDay);
+    // Compare just the dates
+    const nowDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diffTime = nowDate - start;
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
     return Math.max(1, diffDays);
 }
