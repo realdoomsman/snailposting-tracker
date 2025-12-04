@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐌 Snailposting to $10M</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="chart-container">
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-bars">
+                    <div class="bar" style="height: 40%"></div>
+                    <div class="bar" style="height: 60%"></div>
+                    <div class="bar" style="height: 45%"></div>
+                    <div class="bar" style="height: 80%"></div>
+                    <div class="bar" style="height: 95%"></div>
+                </div>
+                <div class="climbing-snail">🐌</div>
+            </div>
+            <h2 class="loading-text">Loading Snailposting...</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-tip">🚀 Preparing to moon...</p>
+        </div>
+    </div>
+    
+
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>🐌 Snailposting to $10M 🐌</h1>
+        <p class="subtitle">Watch the snail grow as our marketcap grows</p>
+        
+        <!-- Live Snail -->
+        <div class="snail-container">
+            <svg id="liveSnail" class="snail" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FDB927;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#F7931A;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="shellGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F7931A;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#E8890F;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="shellInnerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FDB927;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FFCB4C;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="shadow">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+                        <feOffset dx="0" dy="4" result="offsetblur"/>
+                        <feComponentTransfer>
+                            <feFuncA type="linear" slope="0.3"/>
+                        </feComponentTransfer>
+                        <feMerge>
+                            <feMergeNode/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Shadow -->
+                <ellipse class="snail-shadow" cx="250" cy="370" rx="180" ry="20"/>
+                
+                <!-- Snail Body -->
+                <path class="snail-body" d="M 150 280 Q 120 250 120 200 Q 120 180 140 170 L 180 200 Q 200 220 220 240 L 280 280 Q 300 300 280 320 Q 260 340 220 330 Q 180 320 150 280 Z" filter="url(#shadow)"/>
+                
+                <!-- Shell -->
+                <circle class="snail-shell" cx="280" cy="200" r="110" filter="url(#shadow)"/>
+                <circle class="snail-shell-inner" cx="280" cy="200" r="85"/>
+                
+                <!-- Bitcoin Symbol on Shell -->
+                <text x="280" y="230" font-size="90" font-weight="900" fill="white" text-anchor="middle" font-family="Arial, sans-serif" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">₿</text>
+                
+                <!-- Left Eye Stalk -->
+                <line class="snail-eye-stalk" x1="140" y1="170" x2="120" y2="130" stroke-width="8" stroke-linecap="round"/>
+                <circle class="snail-eye-outer" cx="120" cy="120" r="18"/>
+                <circle class="snail-eye-white" cx="120" cy="120" r="13"/>
+                <circle class="snail-eye-pupil" cx="123" cy="118" r="6"/>
+                
+                <!-- Right Eye Stalk -->
+                <line class="snail-eye-stalk" x1="170" y1="175" x2="180" y2="125" stroke-width="8" stroke-linecap="round"/>
+                <circle class="snail-eye-outer" cx="180" cy="115" r="18"/>
+                <circle class="snail-eye-white" cx="180" cy="115" r="13"/>
+                <circle class="snail-eye-pupil" cx="183" cy="113" r="6"/>
+            </svg>
+        </div>
+        
+        <div class="mc-display">
+            <div class="mc-row">
+                <div class="mc-item">
+                    <div class="mc-label">Current Marketcap</div>
+                    <div class="mc-value" id="currentMC">Loading...</div>
+                </div>
+                <div class="mc-item">
+                    <div class="mc-label">Progress to $10M</div>
+                    <div class="mc-value" id="progressPercent">0%</div>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <!-- Milestones Section -->
+    <section class="milestones">
+        <h2>Milestones</h2>
+        <div class="milestone-grid">
+            <div class="milestone" data-mc="10000">
+                <div class="milestone-snail tiny">🐌</div>
+                <p class="milestone-title">Tiny Snail</p>
+                <p class="milestone-mc">$10k MC</p>
+            </div>
+            <div class="milestone" data-mc="100000">
+                <div class="milestone-snail small">🐌</div>
+                <p class="milestone-title">Small Snail</p>
+                <p class="milestone-mc">$100k MC</p>
+            </div>
+            <div class="milestone" data-mc="500000">
+                <div class="milestone-snail medium">🐌</div>
+                <p class="milestone-title">Medium Snail</p>
+                <p class="milestone-mc">$500k MC</p>
+            </div>
+            <div class="milestone" data-mc="1000000">
+                <div class="milestone-snail big">🐌</div>
+                <p class="milestone-title">Big Snail</p>
+                <p class="milestone-mc">$1M MC</p>
+            </div>
+            <div class="milestone" data-mc="5000000">
+                <div class="milestone-snail giant">🐌</div>
+                <p class="milestone-title">Giant Snail</p>
+                <p class="milestone-mc">$5M MC</p>
+            </div>
+            <div class="milestone" data-mc="10000000">
+                <div class="milestone-snail god">🐌</div>
+                <p class="milestone-title">GOD SNAIL</p>
+                <p class="milestone-mc">$10M MC</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Snailposting Lore Section -->
+    <section class="lore">
+        <h2>The Snailposting Tradition</h2>
+        <div class="lore-content">
+            <p><strong>What is snailposting?</strong></p>
+            <p>Snailposting is a legendary 4chan /biz/ tradition where an anonymous poster commits to posting a snail emoji every single day until Bitcoin reaches $1,000,000.</p>
+            
+            <p><strong>The Origin</strong></p>
+            <p>It started as a simple daily ritual: "Day X of snailposting every day until BTC is $1M." What began as one anon's dedication became a cultural phenomenon, with the snail representing patience, persistence, and unwavering belief in the long game.</p>
+            
+            <p><strong>Why the Snail?</strong></p>
+            <p>The snail is slow but steady. It doesn't rush. It doesn't panic sell. It just keeps moving forward, day after day, no matter what the market does. The snail is the ultimate diamond hands.</p>
+            
+            <p><strong>Our Mission</strong></p>
+            <p>We've taken this legendary tradition and created our own version. Instead of waiting for BTC to hit $1M, we're snailposting until OUR token hits $10M marketcap. Every holder is part of the journey. Every day, the snail grows.</p>
+            
+            <p class="lore-link">
+                <a href="https://boards.4chan.org/biz/thread/61428878/day-1569-of-snailposting-every-day-until-btc-is" target="_blank" rel="noopener">
+                    → Read the Original 4chan Thread (Day 1569)
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Token Section -->
+    <section class="token">
+        <h2>The Official Snail Coin</h2>
+        <div class="token-content">
+            <div class="ca-box">
+                <p class="ca-label">Contract Address (CA):</p>
+                <p class="ca-address" id="contractAddress">YOUR_CONTRACT_ADDRESS_HERE</p>
+                <button class="copy-btn" onclick="copyCA()">Copy CA</button>
+            </div>
+            
+            <div class="token-buttons">
+                <a href="#" id="chartLink" class="btn btn-primary" target="_blank" rel="noopener">
+                    📊 View Chart
+                </a>
+                <a href="https://x.com/i/communities/1996366238260351235" class="btn btn-secondary" target="_blank" rel="noopener">
+                    🐌 Join Community
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Twitter Auto-Post Button -->
+    <section class="twitter-post">
+        <button class="btn btn-tweet" onclick="postSnailTweet()">
+            Post Snail Tweet
+        </button>
+        <p class="tweet-hint">Opens Twitter with pre-filled snailpost</p>
+    </section>
+    
+
+
+    <!-- Footer -->
+    <footer>
+        <p>🐌 Snailposting until we hit $10M MC 🐌</p>
+        <p class="footer-small">Not financial advice. Just vibes and snails.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
